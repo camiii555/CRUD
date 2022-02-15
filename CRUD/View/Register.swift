@@ -50,7 +50,8 @@ struct Register: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .font(.title3)
                 Button {
-                    let validateUser = model.validateUser(results: results)
+                    let data = model.getData(context: context)
+                    let validateUser = model.validateUser(results: data)
                     model.messageAlert = model.validateFields()
                     if model.messageAlert != "" {
                         model.showAlert.toggle()

@@ -10,8 +10,7 @@ import SwiftUI
 struct Login: View {
     @StateObject var model = ViewModel()
     @Environment(\.managedObjectContext) var context
-    @FetchRequest(entity: Users.entity(), sortDescriptors: [NSSortDescriptor(key: "email", ascending: true)], animation: .spring()) var results: FetchedResults<Users>
-     
+   
     let sizeCreen = UIScreen.main.bounds.width
     var body: some View {
         NavigationView{
@@ -49,8 +48,8 @@ struct Login: View {
                     .padding(.horizontal)
                     
                 Button {
-                    model.getData(context: context)
-                    if model.Login(results: results) == true {
+                    let data = model.getData(context: context)
+                    if model.Login(results: data) == true {
                         model.showHome = "Home"
                     } else {
                         model.showAlert.toggle()
