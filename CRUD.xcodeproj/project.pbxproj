@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D24298D427B79EC6009F0328 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24298D327B79EC6009F0328 /* Home.swift */; };
+		D2CD4D7B27C4A3D800D01745 /* AddNewUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CD4D7A27C4A3D800D01745 /* AddNewUser.swift */; };
 		D2FAD8FD27A3DA6500B9F1A2 /* CRUDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FAD8FC27A3DA6500B9F1A2 /* CRUDApp.swift */; };
 		D2FAD8FF27A3DA6500B9F1A2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FAD8FE27A3DA6500B9F1A2 /* ContentView.swift */; };
 		D2FAD90127A3DA6700B9F1A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2FAD90027A3DA6700B9F1A2 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		D24298D327B79EC6009F0328 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		D2CD4D7A27C4A3D800D01745 /* AddNewUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewUser.swift; sourceTree = "<group>"; };
 		D2FAD8F927A3DA6500B9F1A2 /* CRUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CRUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2FAD8FC27A3DA6500B9F1A2 /* CRUDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRUDApp.swift; sourceTree = "<group>"; };
 		D2FAD8FE27A3DA6500B9F1A2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				D2FAD91227A3DC2E00B9F1A2 /* Login.swift */,
 				D2FAD91627A3E6A900B9F1A2 /* Register.swift */,
 				D24298D327B79EC6009F0328 /* Home.swift */,
+				D2CD4D7A27C4A3D800D01745 /* AddNewUser.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 			files = (
 				D2FAD90627A3DA6700B9F1A2 /* Persistence.swift in Sources */,
 				D2FAD91327A3DC2E00B9F1A2 /* Login.swift in Sources */,
+				D2CD4D7B27C4A3D800D01745 /* AddNewUser.swift in Sources */,
 				D2FAD8FF27A3DA6500B9F1A2 /* ContentView.swift in Sources */,
 				D2FAD8FD27A3DA6500B9F1A2 /* CRUDApp.swift in Sources */,
 				D2FAD91727A3E6A900B9F1A2 /* Register.swift in Sources */,
@@ -325,6 +329,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -354,6 +359,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

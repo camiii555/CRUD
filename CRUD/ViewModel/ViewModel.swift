@@ -36,7 +36,6 @@ class ViewModel: ObservableObject {
         do {
             try context.save()
             print("Guardado exitoso")
-            show.toggle()
         } catch let error as NSError {
             print("No se ha podido realizar el registro", error.localizedDescription)
         }
@@ -57,7 +56,6 @@ class ViewModel: ObservableObject {
         do {
             let result = try context.fetch(fetchRequest)
             data = result
-            print(data)
         } catch {
             let fetchError = error as NSError
             print(fetchError)

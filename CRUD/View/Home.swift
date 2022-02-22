@@ -9,19 +9,52 @@ import SwiftUI
 
 struct Home: View {
     @Environment(\.presentationMode) var presentation
-    @ObservedObject var model : ViewModel
+    @ObservedObject var model: ViewModel
+    @FetchRequest(entity: Users.entity(), sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)], animation: .spring()) var results: FetchedResults<Users>
+    
     var body: some View {
-        
-        ZStack{
-            Text("Hello")
-            
-        }.navigationTitle("Home")
-            .onAppear {
-                model.resetFields()
-            }
-            .onDisappear {
-                self.presentation.wrappedValue.dismiss()
-            }
+        NavigationView{
+            List{
+                ForEach(results){ item in
+                    VStack {
+                        HStack() {
+                            Text("Nombre:").frame(alignment: .leading)
+                            Text("\(item.name ?? "") \(item.last_name ?? "")")
+                        }
+                    }.contextMenu{
+                        Button {
+                            
+                        } label: {
+                            Text("Editar")
+                            Image(systemName: "pencil")
+                        }
+                        
+                        Button {
+                            
+                        } label: {
+                            Text("Borrar Registro")
+                            Image(systemName: "trash")
+                        }
+                    }
+                }
+            }.navigationTitle("Usuarios Registrados")
+                .toolbar {
+                    NavigationLink {
+                        AddNewUser(model: model)
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+        }.onAppear{
+            model.resetFields()
+        }
+        .onDisappear {
+            presentation.wrappedValue.dismiss()
+        }
     }
 }
+
+/*    .onDisappear {
+        self.presentation.wrappedValue.dismiss()
+    } */
 
