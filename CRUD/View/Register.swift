@@ -54,7 +54,7 @@ struct Register: View {
                     model.messageAlert = model.validateFields()
                     if model.messageAlert != "" {
                         model.showAlert.toggle()
-                    } else if validateUser == true {
+                    } else if validateUser && !model.updateData  {
                         model.messageAlert = "El correo ingresado ya esta registrado"
                         model.showAlert.toggle()
                     } else {

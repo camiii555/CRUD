@@ -11,6 +11,7 @@ struct Home: View {
     @Environment(\.presentationMode) var presentation
     @ObservedObject var model: ViewModel
     @FetchRequest(entity: Users.entity(), sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)], animation: .spring()) var results: FetchedResults<Users>
+    @Environment(\.managedObjectContext) var context
     
     var body: some View {
         NavigationView{
@@ -26,13 +27,13 @@ struct Home: View {
                         Button {
                             model.sendData(item: item)
                             model.show.toggle()
+                            model.updateData.toggle()
                         } label: {
                             Text("Editar")
                             Image(systemName: "pencil")
                         }
-                        
                         Button {
-                            
+                            model.deleteData(item: item, context: context)
                         } label: {
                             Text("Borrar Registro")
                             Image(systemName: "trash")

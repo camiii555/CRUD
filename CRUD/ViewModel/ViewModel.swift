@@ -22,7 +22,8 @@ class ViewModel: ObservableObject {
     @Published var showAlert = false
     @Published var messageAlert = ""
     @Published var showHome: String? = nil
-    
+    @Published var updateData = false
+    @Published var updateItems: Users?
     
     // Register the user in the database
     func register(context: NSManagedObjectContext) {
@@ -31,7 +32,7 @@ class ViewModel: ObservableObject {
         newRegister.last_name = self.lastName
         newRegister.date_of_birth = self.dateOfBirth
         newRegister.number_phone = self.numberPhone
-        newRegister.email = self.email
+        newRegister.email = self.email.lowercased()
         newRegister.password = self.password
         
         do {
@@ -72,9 +73,9 @@ class ViewModel: ObservableObject {
             self.messageAlert = "No has ingresado un correo valido"
         } else {
             results.forEach { item in
-                if item.email == self.email && item.password == self.password {
+                if item.email == self.email.lowercased() && item.password == self.password {
                     stateLogin = true
-                } else if item.email == self.email && item.password != self.password {
+                } else if item.email == self.email.lowercased() && item.password != self.password {
                     statePassword = true
                     print("Contraseña invalida")
                     self.messageAlert = "Contraseña invalida"
@@ -142,6 +143,35 @@ class ViewModel: ObservableObject {
         self.password = item.password ?? ""
         self.confirmPasswrod = item.password ?? ""
     }
+    // edit users
+    func editData(context: NSManagedObjectContext) {
+        self.updateItems?.name = self.name
+        self.updateItems?.last_name = self.lastName
+        self.updateItems?.date_of_birth = self.dateOfBirth
+        self.updateItems?.number_phone = self.numberPhone
+        self.updateItems?.email = self.email.lowercased()
         
+        if self.password == self.confirmPasswrod {
+            self.updateItems?.password = self.password
+        }
+        do {
+            try context.save()
+            show.toggle()
+            updateData.toggle()
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    }
+    
+    // delete users
+    
+    func deleteData(item: Users, context: NSManagedObjectContext) {
+        context.delete(item)
+        do {
+            try context.save()
+        } catch let error as NSError {
+            print("No se ha podido borrar el usuario", error.localizedDescription)
+        }
+    }
 
 }
