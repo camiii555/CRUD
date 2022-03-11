@@ -9,6 +9,6 @@
         <attribute name="password" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Users" positionX="-54" positionY="-9" width="128" height="119"/>
+        <element name="Users" positionX="-54" positionY="-9" width="128" height="133"/>
     </elements>
 </model>

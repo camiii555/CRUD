@@ -30,6 +30,7 @@ class ViewModel: ObservableObject {
         newRegister.name = self.name
         newRegister.last_name = self.lastName
         newRegister.date_of_birth = self.dateOfBirth
+        newRegister.number_phone = self.numberPhone
         newRegister.email = self.email
         newRegister.password = self.password
         
@@ -71,7 +72,7 @@ class ViewModel: ObservableObject {
             self.messageAlert = "No has ingresado un correo valido"
         } else {
             results.forEach { item in
-                if item.email == self.email && item.password == self.password{
+                if item.email == self.email && item.password == self.password {
                     stateLogin = true
                 } else if item.email == self.email && item.password != self.password {
                     statePassword = true
@@ -129,6 +130,17 @@ class ViewModel: ObservableObject {
         self.numberPhone = ""
         self.password = ""
         self.confirmPasswrod = ""
+    }
+    
+    // send data for edit
+    func sendData(item: Users) {
+        self.name = item.name ?? ""
+        self.lastName = item.last_name ?? ""
+        self.dateOfBirth = item.date_of_birth ?? Date()
+        self.numberPhone = item.number_phone ?? ""
+        self.email = item.email ?? ""
+        self.password = item.password ?? ""
+        self.confirmPasswrod = item.password ?? ""
     }
         
 

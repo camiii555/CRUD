@@ -19,11 +19,13 @@ struct Home: View {
                     VStack {
                         HStack() {
                             Text("Nombre:").frame(alignment: .leading)
-                            Text("\(item.name ?? "") \(item.last_name ?? "")")
+                            Text(item.number_phone ?? "")
+                            //Text("\(item.name ?? "") \(item.last_name ?? "")")
                         }
                     }.contextMenu{
                         Button {
-                            
+                            model.sendData(item: item)
+                            model.show.toggle()
                         } label: {
                             Text("Editar")
                             Image(systemName: "pencil")
@@ -45,6 +47,10 @@ struct Home: View {
                         Image(systemName: "plus")
                     }
                 }
+                .sheet(isPresented: $model.show) {
+                    Register(model: model)
+                }
+
         }.onAppear{
             model.resetFields()
         }
